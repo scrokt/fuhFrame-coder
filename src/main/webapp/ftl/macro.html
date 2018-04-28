@@ -1,0 +1,39 @@
+<#macro pager result>
+	<input id="pageIndex" type="hidden" name="page.pageIndex" value="${(result.searchForm.page.pageIndex)!'1'}" />
+  	<input id="pageSize" type="hidden" name="page.pageSize" value="${(result.searchForm.page.pageSize)!'10'}" />
+	<div class="tab_foot">
+		<div class="foot_left fl">共${result.searchForm.page.rowTotal}条记录，每页${result.searchForm.page.pageSize}条记录，共${result.searchForm.page.pageTotal}页，当前${result.searchForm.page.pageIndex}页</div>
+		<div class="foot_right fr">
+			<#if result.searchForm.page.pageIndex gt 1>
+			<a href="javascript:changePage(1)">首页</a> 
+			<a href="javascript:changePage(${result.searchForm.page.pageIndex-1})">上一页</a>
+			</#if> 
+			<#if result.searchForm.page.pageIndex lt result.searchForm.page.pageTotal> 
+			<a href="javascript:changePage(${result.searchForm.page.pageIndex+1})">下一页</a>
+			<a href="javascript:changePage(${result.searchForm.page.pageTotal})">末页</a>
+			</#if> 
+		</div>
+	</div>
+</#macro>
+<#macro selector list,name,listKey,listValue,value="",id="",emptyOption=true>
+<#if id!="">
+<select id="${id}" class="task_text2" name="${name}" >
+<#else>
+<select class="task_text2" name="${name}" >
+</#if> 
+
+<#if emptyOption>
+	<option value="">请选择</option>
+</#if>
+   	<#if list??>
+   	<#list list as obj>
+   		<#assign keyStr="obj."+listKey _key=keyStr?eval valueStr="obj."+listValue _value=valueStr?eval />
+   		<#if _key+"" == value+"">
+   		<option selected="selected" value="${_key}">${_value}</option>
+   		<#else>
+   		<option value="${_key}">${_value}</option>
+   		</#if>
+   	</#list>
+   	</#if>
+   	</select>
+</#macro>

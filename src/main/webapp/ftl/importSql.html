@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RT代码生成工具</title>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<h2>欢迎使用RT代码生成工具V1.0！</h2><br/>
+
+<h4>sql脚本</h4><br/>
+<form action="${context}/goConfirmModel" method="post">
+请输入sql：<textarea rows="10" cols="50" name="sql"></textarea>
+<br/>
+<a href="${context}/goIndex">上一步</a> <input type="submit" value="下一步"/>
+</form>
+
+<br/>
+<br/>
+<br/>
+1.表名使用_分隔，取最后单词为模块名<br/>
+2.字段以,分隔，第一个单词为字段名，第二个为类型，第三个为中文，第四个为空否
+</body>
+</html>
+<script type="text/javascript">
+var winWidth = 0;
+var winHeight = 0;
+function findDimensions() //函数：获取尺寸
+{
+ 
+//获取窗口高度
+if (window.innerHeight)
+winHeight = window.innerHeight;
+else if ((document.body) && (document.body.clientHeight))
+winHeight = document.body.clientHeight;
+//通过深入Document内部对body进行检测，获取窗口大小
+if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
+{
+winHeight = document.documentElement.clientHeight;
+}
+document.getElementById('H').style.height=winHeight-50 + "px";//这里是给我们的H 赋值
+document.getElementById('H2').style.height=winHeight-50 + "px";//这里是给我们的H2 赋值
+document.getElementById('iframeh').height=winHeight-50 + "px";//这里是给我们的iframeh 赋值
+}
+findDimensions();
+//调用函数，获取数值
+window.onresize=findDimensions;
+ 
+</script>

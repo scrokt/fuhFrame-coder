@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<link href="${context}/html/images/dl.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<form action="${context}/doLogin" method="post">
+<div class="bg" id="H">
+  <div class="dl_box">
+    <div class="dl_left fl"></div>
+    <div class="dl_right fr">
+      <div class="line"></div>
+      <table class="dl_c" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><input class="admin" type="text" name="loginAccount" placeholder="请输入用户名"/></td>
+        </tr>
+        <tr>
+          <td><input class="cpassword" type="password" name="password" placeholder="请输入密码"/></td>
+        </tr>
+         <tr>
+          <td style="height:20px;"> ${login_fail!}</td>
+        </tr>
+        <tr>
+          <td style="height:20px;"> </td>
+        </tr>
+        <tr>
+          <td><input class="btn" type="submit"  value="登&nbsp;&nbsp;&nbsp;录"/></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+var winWidth = 0;
+var winHeight = 0;
+function findDimensions() //函数：获取尺寸
+{
+ 
+//获取窗口高度
+if (window.innerHeight)
+winHeight = window.innerHeight;
+else if ((document.body) && (document.body.clientHeight))
+winHeight = document.body.clientHeight;
+//通过深入Document内部对body进行检测，获取窗口大小
+if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
+{
+winHeight = document.documentElement.clientHeight;
+}
+document.getElementById('H').style.height=winHeight-50 + "px";//这里是给我们的H 赋值
+}
+findDimensions();
+//调用函数，获取数值
+window.onresize=findDimensions;
+ 
+</script>
